@@ -79,7 +79,7 @@ client.on("message", async message => {
     if (message.deletable) message.delete();
     payload = await redditEngine.fetcher(cmd);
     // console.log(payload);
-    message.channel.send(`${payload.setup} \n *${payload.punchline}*`);
+    message.channel.send(payload);
   }
 });
 
