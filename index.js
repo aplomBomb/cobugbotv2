@@ -4,7 +4,7 @@ const richEmbed = new Discord.RichEmbed();
 const credentials = require("./credentials");
 const insults = require("./insults.json");
 
-const randomNumber = Math.floor(Math.random() * Math.floor(insults.length));
+let randomNumber = Math.floor(Math.random() * Math.floor(insults.length));
 console.log(randomNumber);
 
 client.on("ready", () => {
@@ -59,7 +59,17 @@ client.on("message", async message => {
   }
 
   if (cmd === "insult") {
+    randomNumber = randomNumber + 1;
+    if (randomNumber > insults.length) {
+      randomNumber === 0;
+    }
     if (message.deletable) message.delete();
+    if (message.mentions) {
+      const mention = await message.mentions.users.find(user => user.username);
+
+      const mentionedUser = mention.id;
+      message.channel.send(`${mention} ${insults[randomNumber].phrase}`);
+    }
   }
 });
 
