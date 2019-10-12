@@ -1,0 +1,13 @@
+{
+  "name": "cobugbotJS",
+  "version": "1.0.0",
+  "description": "An asshole Reddit bot",
+  "main": "index.js",
+  "repository": "https://github.com/aplomBomb/cobugbotV2.git",
+  "author": "aplomBomb",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
