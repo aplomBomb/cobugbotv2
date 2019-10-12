@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ disableEveryone: true });
 const credentials = require("./credentials");
 const insults = require("./insults.json");
+const redditEngine = require("./lib/redditEngine");
 
 let randomNumber = Math.floor(Math.random() * Math.floor(insults.length));
 console.log(randomNumber);
@@ -70,6 +71,13 @@ client.on("message", async message => {
     } else {
       message.reply(`${insults[randomNumber].phrase}`);
     }
+  }
+
+  //REDDIT LISTENERS////////////////////////////////////////////////////////////////////////
+
+  if (cmd === "dj" || "st" || "ihi" || "meme" || "gif" || "lol" || "til") {
+    payload = await redditEngine.fetcher(cmd);
+    console.log(payload);
   }
 });
 
