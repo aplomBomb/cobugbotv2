@@ -76,8 +76,10 @@ client.on("message", async message => {
   //REDDIT LISTENERS////////////////////////////////////////////////////////////////////////
 
   if (cmd === "dj" || "st" || "ihi" || "meme" || "gif" || "lol" || "til") {
+    if (message.deletable) message.delete();
     payload = await redditEngine.fetcher(cmd);
-    console.log(payload);
+    // console.log(payload);
+    message.channel.send(`${payload.setup} \n *${payload.punchline}*`);
   }
 });
 
