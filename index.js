@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableEveryone: true });
-const richEmbed = new Discord.RichEmbed();
 const credentials = require("./credentials");
 const insults = require("./insults.json");
 
@@ -46,7 +45,7 @@ client.on("message", async message => {
 
   if (cmd === "servers") {
     if (message.deletable) message.delete();
-    message.reply(serverCount.length);
+    message.channel.send(`I am in ${serverCount.length} servers`);
   }
 
   if (cmd === "ping") {
@@ -64,11 +63,12 @@ client.on("message", async message => {
       randomNumber === 0;
     }
     if (message.deletable) message.delete();
-    if (message.mentions) {
+    if (message.content.includes("@")) {
       const mention = await message.mentions.users.find(user => user.username);
 
-      const mentionedUser = mention.id;
       message.channel.send(`${mention} ${insults[randomNumber].phrase}`);
+    } else {
+      message.reply(`${insults[randomNumber].phrase}`);
     }
   }
 });
