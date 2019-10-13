@@ -27,8 +27,8 @@
   <li><strong>&ihi Will post something you'll probably hate 😨</strong></li>
 </ul>
 
-<p>
+<h3>
   **Commands aren't guaranteed to work, sometimes Cobugbot will just refuse and
   insult you instead, deal with it. 🎰 🎲
-</p>
-<h4><strong>Hit the "Invite" button above to add Cobugbot to your discord server! ➕</strong></h4>
+<h3>
+<h2><strong>Click the widget above to add Cobugbot to your discord server! ➕</strong></h2>
