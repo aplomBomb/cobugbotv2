@@ -3,6 +3,7 @@ const client = new Discord.Client({ disableEveryone: true });
 const credentials = require("./credentials");
 const insults = require("./insults.json");
 const redditEngine = require("./lib/redditEngine");
+const stats = require("./lib/stats");
 
 let randomNumber = Math.floor(Math.random() * Math.floor(insults.length));
 
@@ -59,13 +60,15 @@ client.on("message", async message => {
 
   if (cmd === "insult") {
     if (message.deletable) message.delete();
-    randomNumber = randomNumber + 1;
+
+    randomNumber === randomNumber + 1;
+
     if (randomNumber > insults.length) {
       randomNumber === 0;
     }
 
     if (message.content.includes("@")) {
-      const mention = await message.mentions.users.find(user => user.username);
+      const mention = message.mentions.users.find(user => user.username);
 
       message.channel.send(`${mention} ${insults[randomNumber].phrase}`);
     } else {
@@ -75,7 +78,7 @@ client.on("message", async message => {
 
   //REDDIT LISTENERS////////////////////////////////////////////////////////////////////////
 
-  if (cmd === "dj" || "st" || "ihi" || "meme" || "gif" || "ci" || "til") {
+  if (cmd === "dj" || "st" || "ihi" || "meme" || "gif" || "til") {
     if (message.deletable) message.delete();
     payload = await redditEngine.fetcher(cmd);
     message.channel.send(payload);
