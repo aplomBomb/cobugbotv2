@@ -33,7 +33,17 @@ client.on('message', message => {
     if (message.author.bot) return
     if (!message.guild) return
     if (message.content.includes('525382819808280597')) {
-      message.react('🔪')
+      message
+        .react('🇸')
+        .then(() => message.react('🇹'))
+        .then(() => message.react('🇫'))
+        .then(() => message.react('🇺'))
+        // .then(() => {
+        //   message.react('493160851352846355')
+        // })
+        .catch(() => {
+          console.log('Failed to react with emoji')
+        })
     }
     if (!message.content.startsWith(prefix)) return
 
@@ -75,13 +85,14 @@ client.on('message', message => {
     }
 
     if (cmd === 'insult') {
-      if (message.deletable) message.delete()
-
-      randomInsult === randomInsult + 1
+      randomInsult === randomInsult++
+      console.log(randomInsult)
 
       if (randomInsult > insults.length) {
-        randomInsult === 0
+        randomInsult === 1
       }
+
+      if (message.deletable) message.delete()
 
       if (message.content.includes('@')) {
         const mention = message.mentions.users.find(user => user.username)
