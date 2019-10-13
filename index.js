@@ -8,10 +8,7 @@ const stats = require("./lib/stats");
 const searchStatus = require("./lib/searchStatus");
 const DBL = require("dblapi.js");
 
-const dbl = new DBL(
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUyNTM4MjgxOTgwODI4MDU5NyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTY4ODQwNDU3fQ.pc7nhrB52Qkt6572Jy102x-zTYBFDNSV4lEXrsnNI0E",
-  client
-);
+const dbl = new DBL(credentials.dblToken, client);
 
 dbl.on("posted", () => {
   console.log("Server count posted to Discord Bot List API");
