@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "dblapi.js": "^2.3.0",
     "discord.js": "^11.5.1",
     "snoowrap": "^1.20.0"
   }
