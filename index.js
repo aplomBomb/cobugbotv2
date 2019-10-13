@@ -14,7 +14,13 @@ const searchFeedback = [
   "🔮*looking into the future*",
   "🔦*checking in all the scary spots...*",
   "⏱*taking as long as I heckin' want...*",
-  "🔬*researching...*"
+  "🔬*researching...*",
+  "📠*faxing your mom...*",
+  "🧭*getting bearings*",
+  "🔭*gazing into the vacuum of space...*",
+  "🛒*shopping for data...*",
+  "🔑*where did I put my keys...*",
+  "📫*snail-mail might be faster...*"
 ];
 
 let randomInsult = Math.floor(Math.random() * Math.floor(insults.length));
