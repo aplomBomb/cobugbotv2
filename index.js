@@ -1,51 +1,59 @@
-const Discord = require('discord.js')
-const client = new Discord.Client({ disableEveryone: true })
-const credentials = require('./credentials')
-const insults = require('./insults.json')
-const redditEngine = require('./lib/redditEngine')
-const stats = require('./lib/stats')
-const searchStatus = require('./lib/searchStatus')
+const Discord = require("discord.js");
+const client = new Discord.Client({ disableEveryone: true });
+const permissions = require("discord.js");
+const credentials = require("./credentials");
+const insults = require("./insults.json");
+const redditEngine = require("./lib/redditEngine");
+const stats = require("./lib/stats");
+const searchStatus = require("./lib/searchStatus");
 
-let randomInsult = Math.floor(Math.random() * Math.floor(insults.length))
+const botPerms = [
+  "MANAGE_MESSAGES",
+  "SEND_MESSAGES",
+  "MANAGE_CHANNELS",
+  "ADD_REACTIONS"
+];
 
-client.on('ready', () => {
-  console.log(`${client.user.tag} is online and ready to hurt your feelings`)
+let randomInsult = Math.floor(Math.random() * Math.floor(insults.length));
+
+client.on("ready", () => {
+  console.log(`${client.user.tag} is online and ready to hurt your feelings`);
 
   client.user.setPresence({
-    status: 'Fapping',
+    status: "Fapping",
     game: {
-      name: 'getting developed',
-      type: 'WATCHING',
-    },
-  })
+      name: "getting developed",
+      type: "WATCHING"
+    }
+  });
 
-  serverCount = client.guilds.map(name => name.name)
-  console.log(`Loaded ${insults.length} insults`)
-  console.log(`Bot is in ${serverCount.length} servers`)
-})
+  serverCount = client.guilds.map(name => name.name);
+  console.log(`Loaded ${insults.length} insults`);
+  console.log(`Bot is in ${serverCount.length} servers`);
+});
 
-client.on('message', message => {
-  ;(async () => {
-    const prefix = '//'
+client.on("message", message => {
+  (async () => {
+    const prefix = "//";
     // If the author's a bot, return
     // If the message was not sent in a server, return
     // If the message doesn't start with the prefix, return
-    if (message.author.bot) return
-    if (!message.guild) return
-    if (message.content.includes('525382819808280597')) {
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (message.content.includes("525382819808280597")) {
       message
-        .react('🇸')
-        .then(() => message.react('🇹'))
-        .then(() => message.react('🇫'))
-        .then(() => message.react('🇺'))
+        .react("🇸")
+        .then(() => message.react("🇹"))
+        .then(() => message.react("🇫"))
+        .then(() => message.react("🇺"))
         // .then(() => {
         //   message.react('493160851352846355')
         // })
         .catch(() => {
-          console.log('Failed to react with emoji')
-        })
+          console.log("Failed to react with emoji");
+        });
     }
-    if (!message.content.startsWith(prefix)) return
+    if (!message.content.startsWith(prefix)) return;
 
     // Arguments and command variable
     // cmd is the first word in the message, aka the command
@@ -56,82 +64,137 @@ client.on('message', message => {
     const args = message.content
       .slice(prefix.length)
       .trim()
-      .split(/ +/g)
-    const cmd = args.shift().toLowerCase()
+      .split(/ +/g);
+    const cmd = args.shift().toLowerCase();
 
-    if (cmd === 'servers') {
-      if (message.deletable) message.delete()
-      message.channel.send(`I am in ${serverCount.length} servers`)
-    }
-
-    if (cmd === 'ping') {
-      // Send a message
+    if (cmd === "servers") {
       try {
-        if (message.deletable) message.delete()
-        let msg = await message.channel.send(`🏓 Pinging....`)
+        if (!message.guild.me.permissions.has(botPerms)) {
+          randomInsult === randomInsult++;
+          console.log(randomInsult);
 
-        // Edit the message
-        msg.edit(
-          `🏓 Pong!\n My latency with Discord API is ${Math.round(
-            client.ping,
-          )}ms`,
-        )
-      } catch (e) {
-        console.log(e)
-        message.author.send(
-          `**I need the proper permisssions to work, dumbass!**\n *...Read/Write/Manage messages*`,
-        )
+          if (randomInsult > insults.length) {
+            randomInsult === 1;
+          }
+          return message.author.send(
+            `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
+          );
+        }
+      } catch {
+        console.log("Something goofed|catch @ index-line 84");
       }
+
+      if (message.deletable) message.delete();
+
+      message.channel.send(`I am in ${serverCount.length} servers`);
     }
 
-    if (cmd === 'insult') {
-      randomInsult === randomInsult++
-      console.log(randomInsult)
+    if (cmd === "ping") {
+      // Send a message
+
+      try {
+        if (!message.guild.me.permissions.has(botPerms)) {
+          randomInsult === randomInsult++;
+          console.log(randomInsult);
+
+          if (randomInsult > insults.length) {
+            randomInsult === 1;
+          }
+          return message.author.send(
+            `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
+          );
+        }
+      } catch {
+        console.log("Something goofed|catch @ index-line 108");
+      }
+
+      if (message.deletable) message.delete();
+      let msg = await message.channel.send(`🏓 Pinging....`);
+
+      // Edit the message
+      msg.edit(
+        `🏓 Pong!\n My latency with Discord API is ${Math.round(client.ping)}ms`
+      );
+    }
+
+    if (cmd === "insult") {
+      try {
+        if (!message.guild.me.permissions.has(botPerms)) {
+          randomInsult === randomInsult++;
+          console.log(randomInsult);
+
+          if (randomInsult > insults.length) {
+            randomInsult === 1;
+          }
+          return message.author.send(
+            `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
+          );
+        }
+      } catch {
+        console.log("Something goofed|catch @ index-line 134");
+      }
+
+      randomInsult === randomInsult++;
+      console.log(randomInsult);
 
       if (randomInsult > insults.length) {
-        randomInsult === 1
+        randomInsult === 1;
       }
 
-      if (message.deletable) message.delete()
+      if (message.deletable) message.delete();
 
-      if (message.content.includes('@')) {
-        const mention = message.mentions.users.find(user => user.username)
+      if (message.content.includes("@")) {
+        const mention = message.mentions.users.find(user => user.username);
 
-        message.channel.send(`${mention} ${insults[randomInsult].phrase}`)
+        message.channel.send(`${mention} ${insults[randomInsult].phrase}`);
       } else {
-        message.reply(`${insults[randomInsult].phrase}`)
+        message.reply(`${insults[randomInsult].phrase}`);
       }
     }
 
     //REDDIT LISTENERS////////////////////////////////////////////////////////////////////////
 
     if (
-      cmd === 'dj' ||
-      cmd === 'st' ||
-      cmd === 'ihi' ||
-      cmd === 'meme' ||
-      cmd === 'gif' ||
-      cmd === 'til'
+      cmd === "dj" ||
+      cmd === "st" ||
+      cmd === "ihi" ||
+      cmd === "meme" ||
+      cmd === "gif" ||
+      cmd === "til"
     ) {
+      try {
+        if (!message.guild.me.permissions.has(botPerms)) {
+          randomInsult === randomInsult++;
+
+          if (randomInsult > insults.length) {
+            randomInsult === 1;
+          }
+          return message.author.send(
+            `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
+          );
+        }
+      } catch {
+        console.log("Something goofed|catch @ index-line 177");
+      }
+
       let randomSearch = Math.floor(
-        Math.random() * Math.floor(searchStatus.collection.length),
-      )
+        Math.random() * Math.floor(searchStatus.collection.length)
+      );
 
       try {
-        if (message.deletable) message.delete()
+        if (message.deletable) message.delete();
         let msg = await message.channel.send(
-          searchStatus.collection[randomSearch],
-        )
-        payload = await redditEngine.fetcher(cmd)
-        msg.edit(payload)
-      } catch (e) {
-        console.log(e)
-        message.author.send(
-          `**I need the proper permisssions to work, dumbass!**\n *...Read/Write/Manage messages*`,
-        )
+          searchStatus.collection[randomSearch]
+        );
+        payload = await redditEngine.fetcher(cmd);
+        msg.edit(payload);
+      } catch {
+        message.channel.send(
+          `**Something went wrong!** \nIf this continues to happen contact \n**Bomb | Halcyon** \n https://discord.gg/U6T2eUW`
+        );
       }
     }
-  })().catch(console.log)
-})
+  })().catch(console.log);
+});
 
-client.login(credentials.token)
+client.login(credentials.token);
