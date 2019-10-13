@@ -1,10 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableEveryone: true });
-const permissions = require("discord.js");
 const credentials = require("./credentials");
 const insults = require("./insults.json");
 const redditEngine = require("./lib/redditEngine");
-const stats = require("./lib/stats");
 const searchStatus = require("./lib/searchStatus");
 const DBL = require("dblapi.js");
 
