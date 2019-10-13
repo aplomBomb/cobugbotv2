@@ -5,7 +5,6 @@ const insults = require("./insults.json");
 const redditEngine = require("./lib/redditEngine");
 
 let randomNumber = Math.floor(Math.random() * Math.floor(insults.length));
-console.log(randomNumber);
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is online and ready to hurt your feelings`);
@@ -59,11 +58,12 @@ client.on("message", async message => {
   }
 
   if (cmd === "insult") {
+    if (message.deletable) message.delete();
     randomNumber = randomNumber + 1;
     if (randomNumber > insults.length) {
       randomNumber === 0;
     }
-    if (message.deletable) message.delete();
+
     if (message.content.includes("@")) {
       const mention = await message.mentions.users.find(user => user.username);
 
@@ -75,10 +75,9 @@ client.on("message", async message => {
 
   //REDDIT LISTENERS////////////////////////////////////////////////////////////////////////
 
-  if (cmd === "dj" || "st" || "ihi" || "meme" || "gif" || "lol" || "til") {
+  if (cmd === "dj" || "st" || "ihi" || "meme" || "gif" || "ci" || "til") {
     if (message.deletable) message.delete();
     payload = await redditEngine.fetcher(cmd);
-    // console.log(payload);
     message.channel.send(payload);
   }
 });
