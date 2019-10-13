@@ -13,18 +13,18 @@
 
 <ul>
   <li>
-    &insult (username optional)<strong
+    <strong>&insult</strong> (username optional)<strong
       >Generously give one of your fellow Discord members (or yourself) a
       burn! 🔥</strong
     >
   </li>
-  <li>&meme <strong>Will post whatever the hell a meme is? 🤣</strong></li>
-  <li>&gif <strong>Posts a GIF 🖼️🖼️🖼️🖼️</strong></li>
-  <li>&dj <strong>Make everyone cringe with a terrible dad joke. 😕</strong></li>
+  <li><strong>&meme</strong> <strong>Will post whatever the hell a meme is? 🤣</strong></li>
+  <li><strong>&gif Posts a GIF 🖼️🖼️🖼️🖼️</strong></li>
+  <li><strong>&dj Make everyone cringe with a terrible dad joke. 😕</strong></li>
   <li>
-    &til <strong>Exercise your right to learn with a classic "TIL" 💡</strong>
+    <strong>&til Exercise your right to learn with a classic "TIL" 💡</strong>
   </li>
-  <li>&ihi <strong>Will post something you'll probably hate 😨</strong></li>
+  <li><strong>&ihi Will post something you'll probably hate 😨</strong></li>
 </ul>
 
 <p>
