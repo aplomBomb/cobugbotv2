@@ -23,7 +23,6 @@ let randomInsult = Math.floor(Math.random() * Math.floor(insults.length));
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is online and ready to hurt your feelings`);
-  console.log(stats.Mentions);
 
   client.user.setPresence({
     status: "Fapping",
