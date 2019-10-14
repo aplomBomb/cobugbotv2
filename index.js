@@ -15,7 +15,6 @@ dbl.on("posted", () => {
 const botPerms = [
   "MANAGE_MESSAGES",
   "SEND_MESSAGES",
-  "MANAGE_CHANNELS",
   "ADD_REACTIONS"
 ];
 
