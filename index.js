@@ -27,7 +27,7 @@ client.on("ready", () => {
   client.user.setPresence({
     status: "Fapping",
     game: {
-      name: "getting developed",
+      name: "your mom",
       type: "WATCHING"
     }
   });
@@ -39,13 +39,14 @@ client.on("ready", () => {
 
 client.on("message", message => {
   (async () => {
-    const prefix = "//";
+    const prefix = "&";
     // If the author's a bot, return
     // If the message was not sent in a server, return
     // If the message doesn't start with the prefix, return
     if (message.author.bot) return;
     if (!message.guild) return;
     if (message.content.includes("525382819808280597")) {
+      console.log("Someone is mentioning me");
       message
         .react("🇸")
         .then(() => message.react("🇹"))
@@ -73,6 +74,7 @@ client.on("message", message => {
     const cmd = args.shift().toLowerCase();
 
     if (cmd === "servers") {
+      console.log("Someone is requesting server count");
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
           randomInsult === randomInsult++;
@@ -96,7 +98,7 @@ client.on("message", message => {
 
     if (cmd === "ping") {
       // Send a message
-
+      console.log("Someone is requesting latency");
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
           randomInsult === randomInsult++;
@@ -123,6 +125,7 @@ client.on("message", message => {
     }
 
     if (cmd === "insult") {
+      console.log("Insulting someone");
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
           randomInsult === randomInsult++;
@@ -167,6 +170,7 @@ client.on("message", message => {
       cmd === "gif" ||
       cmd === "til"
     ) {
+      console.log(`Fetching ${cmd}`);
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
           randomInsult === randomInsult++;
