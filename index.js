@@ -186,7 +186,7 @@ client.on("message", message => {
       }
 
       let randomSearch = Math.floor(
-        Math.random() * Math.floor(searchStatus.collection.length)
+        Math.random() * Math.floor(searchStatus.collection[21])
       );
 
       try {
