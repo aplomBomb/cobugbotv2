@@ -192,7 +192,7 @@ client.on("message", message => {
       try {
         if (message.deletable) message.delete();
         let msg = await message.channel.send(
-          searchStatus.collection[21]
+          searchStatus.collection[20]
         );
         payload = await redditEngine.fetcher(cmd);
         msg.edit(payload);
