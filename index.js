@@ -79,7 +79,7 @@ client.on("message", message => {
           randomInsult === randomInsult++;
           console.log(randomInsult);
 
-          if (randomInsult > insults.length) {
+          if (randomInsult === insults.length) {
             randomInsult === 1;
           }
           return message.author.send(
@@ -103,7 +103,7 @@ client.on("message", message => {
           randomInsult === randomInsult++;
           console.log(randomInsult);
 
-          if (randomInsult > insults.length) {
+          if (randomInsult === insults.length) {
             randomInsult === 1;
           }
           return message.author.send(
@@ -130,7 +130,7 @@ client.on("message", message => {
           randomInsult === randomInsult++;
           console.log(randomInsult);
 
-          if (randomInsult > insults.length) {
+          if (randomInsult === insults.length) {
             randomInsult === 1;
           }
           return message.author.send(
@@ -144,7 +144,7 @@ client.on("message", message => {
       randomInsult === randomInsult++;
       console.log(randomInsult);
 
-      if (randomInsult > insults.length) {
+      if (randomInsult === insults.length) {
         randomInsult === 1;
       }
 
@@ -174,7 +174,7 @@ client.on("message", message => {
         if (!message.guild.me.permissions.has(botPerms)) {
           randomInsult === randomInsult++;
 
-          if (randomInsult > insults.length) {
+          if (randomInsult === insults.length) {
             randomInsult === 1;
           }
           return message.author.send(
