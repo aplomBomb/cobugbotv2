@@ -76,11 +76,11 @@ client.on("message", message => {
       console.log("Someone is requesting server count");
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
-          randomInsult === randomInsult++;
+          randomInsult++;
           console.log(randomInsult);
 
           if (randomInsult === insults.length) {
-            randomInsult === 1;
+            randomInsult = 1;
           }
           return message.author.send(
             `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
@@ -100,11 +100,11 @@ client.on("message", message => {
       console.log("Someone is requesting latency");
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
-          randomInsult === randomInsult++;
+          randomInsult++;
           console.log(randomInsult);
 
           if (randomInsult === insults.length) {
-            randomInsult === 1;
+            randomInsult = 1;
           }
           return message.author.send(
             `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
@@ -127,11 +127,11 @@ client.on("message", message => {
       console.log("Insulting someone");
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
-          randomInsult === randomInsult++;
+          randomInsult++;
           console.log(randomInsult);
 
-          if (randomInsult === insults.length) {
-            randomInsult === 1;
+          if (randomInsult > insults.length) {
+            randomInsult = 1;
           }
           return message.author.send(
             `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
@@ -141,11 +141,11 @@ client.on("message", message => {
         console.log("Something goofed|catch @ index-line 134");
       }
 
-      randomInsult === randomInsult++;
+      randomInsult++;
       console.log(randomInsult);
 
       if (randomInsult === insults.length) {
-        randomInsult === 1;
+        randomInsult = 1;
       }
 
       if (message.deletable) message.delete();
@@ -172,10 +172,10 @@ client.on("message", message => {
       console.log(`Fetching ${cmd}`);
       try {
         if (!message.guild.me.permissions.has(botPerms)) {
-          randomInsult === randomInsult++;
+          randomInsult++;
 
           if (randomInsult === insults.length) {
-            randomInsult === 1;
+            randomInsult = 1;
           }
           return message.author.send(
             `**I need permissions, dumbass** \nI need to be able to **Read/Send/Manage** messages and Add Reactions \n_${insults[randomInsult].phrase}_ `
