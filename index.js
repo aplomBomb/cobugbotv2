@@ -198,7 +198,7 @@ client.on("message", message => {
         msg.edit(payload);
       } catch {
         message.channel.send(
-          `**Something went wrong!** \nIf this continues to happen contact \n**Bomb | Halcyon** \n https://discord.gg/U6T2eUW`
+          `**Something went wrong!** \nIf this continues to happen contact \n**Bomb | Halcyon** \n https://discord.gg/PtXnfJm`
         );
       }
     }
