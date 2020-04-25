@@ -42,10 +42,11 @@ client.on("ready", async () => {
 
   client.user.setPresence({
     status: "Custom prefixes! '&prefix (prefix)'",
-    // game: {
-    //   name: "your mom",
-    //   type: "WATCHING",
-    // },
+    game: {
+      name: "your mom",
+      type: "STREAMING",
+      url: "https://www.twitch.tv/halcyonbomb",
+    },
   });
 
   serverCount = client.guilds.map((name) => name.name);
