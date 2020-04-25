@@ -91,7 +91,12 @@ client.on("message", (message) => {
             guildId: message.guild.id,
             prefix: "&",
           });
-          return newGuild.save();
+          {
+            message.channel.send(
+              `I just arrived at your shitty server, creating settings for you, try the command again, you piece of shit.`
+            );
+            return newGuild.save();
+          }
         }
         if (message.content.includes("525382819808280597")) {
           console.log("Someone is mentioning me");
