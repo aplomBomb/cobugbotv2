@@ -41,11 +41,11 @@ client.on("ready", async () => {
   // });
 
   client.user.setPresence({
-    status: "Fapping",
-    game: {
-      name: "your mom",
-      type: "WATCHING",
-    },
+    status: "Custom prefixes! '&prefix (prefix)'",
+    // game: {
+    //   name: "your mom",
+    //   type: "WATCHING",
+    // },
   });
 
   serverCount = client.guilds.map((name) => name.name);
