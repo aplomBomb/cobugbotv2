@@ -12,6 +12,7 @@
 </h3>
 
 <ul>
+<li><strong>`&prefix (prefix)`</strong>Server administrators can change the prefix Cobugbot will respond to</li>
   <li>
     <strong>&insult</strong> (username optional)<strong
       >Generously give one of your fellow Discord members (or yourself) a
