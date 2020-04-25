@@ -99,7 +99,7 @@ client.on("message", (message) => {
               console.log("Failed to react with emoji");
             });
         }
-        let prefix = guild.prefix ? guild.prefix : "&";
+        let prefix = guild.prefix ? (prefix = guild.prefix) : (prefix = "&");
         if (!message.content.startsWith(prefix)) return;
 
         // Arguments and command variable
