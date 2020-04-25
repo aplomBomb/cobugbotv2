@@ -85,6 +85,14 @@ client.on("message", (message) => {
       },
       async (err, guild) => {
         if (err) return console.log(err);
+        if (!guild) {
+          console.log("Creating new table for guild");
+          const newGuild = new GuildModel({
+            guildId: message.guild.id,
+            prefix: "&",
+          });
+          return newGuild.save();
+        }
         if (message.content.includes("525382819808280597")) {
           console.log("Someone is mentioning me");
           message
@@ -122,14 +130,6 @@ client.on("message", (message) => {
             if (message.member.hasPermission("ADMINISTRATOR")) {
               GuildModel.findOne({ guildId: message.guild.id }, (err, doc) => {
                 if (err) console.log(err);
-                if (!doc) {
-                  console.log("Creating new table for guild");
-                  const newGuild = new GuildModel({
-                    guildId: message.guild.id,
-                    prefix: args[0],
-                  });
-                  return newGuild.save();
-                }
                 doc.prefix = args[0];
                 doc.save();
               });
