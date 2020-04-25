@@ -121,6 +121,15 @@ client.on("message", (message) => {
           if (args[0].length >= 1 && args[0].length <= 3) {
             if (message.member.hasPermission("ADMINISTRATOR")) {
               GuildModel.findOne({ guildId: message.guild.id }, (err, doc) => {
+                if (err) console.log(err);
+                if (!doc) {
+                  console.log("Creating new table for guild");
+                  const newGuild = new GuildModel({
+                    guildId: message.guild.id,
+                    prefix: args[0],
+                  });
+                  return newGuild.save();
+                }
                 doc.prefix = args[0];
                 doc.save();
               });
