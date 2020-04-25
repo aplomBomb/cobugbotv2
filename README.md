@@ -11,21 +11,23 @@
   bot that loves to curse and browse Reddit!
 </h3>
 
+<h4>Default prefix: <strong>&</strong></h4>
+
 <ul>
-<li><strong>`&prefix (prefix)`</strong>Server administrators can change the prefix Cobugbot will respond to</li>
+<li><strong>`prefix (prefix)`</strong>Server administrators can change the prefix Cobugbot will respond to</li>
   <li>
-    <strong>&insult</strong> (username optional)<strong
+    <strong>insult</strong> (username optional)<strong
       >Generously give one of your fellow Discord members (or yourself) a
       burn! 🔥</strong
     >
   </li>
-  <li><strong>&meme</strong> <strong>Will post whatever the hell a meme is? 🤣</strong></li>
-  <li><strong>&gif Posts a GIF 🖼️🖼️🖼️🖼️</strong></li>
-  <li><strong>&dj Make everyone cringe with a terrible dad joke. 😕</strong></li>
+  <li><strong>meme</strong> <strong>Will post whatever the hell a meme is? 🤣</strong></li>
+  <li><strong>gif Posts a GIF 🖼️🖼️🖼️🖼️</strong></li>
+  <li><strong>dj Make everyone cringe with a terrible dad joke. 😕</strong></li>
   <li>
-    <strong>&til Exercise your right to learn with a classic "TIL" 💡</strong>
+    <strong>til Exercise your right to learn with a classic "TIL" 💡</strong>
   </li>
-  <li><strong>&ihi Will post something you'll probably hate 😨</strong></li>
+  <li><strong>ihi Will post something you'll probably hate 😨</strong></li>
 </ul>
 
 <h3>
