@@ -124,7 +124,7 @@ client.on("message", (message) => {
               `${message.author}, you didn't provide a new prefix, dumbass!`
             );
           }
-          if (args[0].length >= 1 && args[0].length <= 3) {
+          if (args[0].length >= 1 && args[0].length <= 8) {
             if (message.member.hasPermission("ADMINISTRATOR")) {
               GuildModel.findOne({ guildId: message.guild.id }, (err, doc) => {
                 if (err) console.log(err);
@@ -140,7 +140,7 @@ client.on("message", (message) => {
               );
           } else
             message.channel.send(
-              `${message.author}, prefixes can only be 1-3 characters in length, you stupid fuck`
+              `${message.author}, prefixes can only be 1-8 characters in length, you stupid fuck`
             );
         }
 
