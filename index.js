@@ -32,14 +32,6 @@ let randomInsult = Math.floor(Math.random() * Math.floor(insults.length));
 client.on("ready", async () => {
   console.log(`${client.user.tag} is online and ready to hurt your feelings`);
 
-  //This function will send a message to all channels with
-  ///the name general, the message 'fuck you' lol
-  // channels = client.guilds.map((guild) => {
-  //   guild.channels.map((channel) => {
-  //     if (channel.name === "general") channel.send("fuck you");
-  //   });
-  // });
-
   client.user.setPresence({
     status: "Custom prefixes! '&prefix (prefix)'",
     game: {
