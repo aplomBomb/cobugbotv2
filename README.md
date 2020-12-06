@@ -4,8 +4,6 @@
 
 <h1><strong>☣️This bot is a jerk☣️</strong></h1>
 
-<h2><strong> Website for adding your own insults to Cobugbot in real-time coming soon‼️ </strong></h2>
-
 <h3>
   Spice up your Discord life with Cobugbot, your unfriendly virtual neighborhood
   bot that loves to curse and browse Reddit!
